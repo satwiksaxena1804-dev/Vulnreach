@@ -189,6 +189,7 @@ class Advisory:
     published: str | None = None
     modified: str | None = None
     url: str | None = None
+    fix_urls: tuple[str, ...] = field(default_factory=tuple, repr=False)
     symbols: tuple[str, ...] = ()
     symbol_source: str | None = None
     fixed_versions: tuple[str, ...] = ()

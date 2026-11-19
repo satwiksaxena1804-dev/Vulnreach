@@ -57,6 +57,43 @@ def test_uncalled_function_is_not_reachable(project_factory):
     assert any(item.code == "no_path_to_symbol" for item in finding.rationale)
 
 
+def test_unresolved_reachable_call_prevents_not_reachable(project_factory):
+    root = project_factory(
+        {
+            "app.py": (
+                "import lib\n"
+                "def main():\n"
+                "    unknown_dispatch()\n"
+                "if __name__ == '__main__':\n"
+                "    main()\n"
+            )
+        }
+    )
+    result, _, _ = run_analysis(root, [make_advisory()], [make_dependency()])
+    finding = result.findings[0]
+    assert finding.verdict is Verdict.UNCERTAIN
+    assert any(gap.kind.value == "unresolved_call" for gap in finding.uncertainty)
+
+
+def test_parse_error_prevents_not_reachable(project_factory):
+    root = project_factory(
+        {
+            "app.py": (
+                "import lib\n"
+                "def main():\n"
+                "    print('running')\n"
+                "if __name__ == '__main__':\n"
+                "    main()\n"
+            ),
+            "broken.py": "def hidden(:\n    lib.danger()\n",
+        }
+    )
+    result, _, _ = run_analysis(root, [make_advisory()], [make_dependency()])
+    finding = result.findings[0]
+    assert finding.verdict is Verdict.UNCERTAIN
+    assert any(gap.kind.value == "parse_error" for gap in finding.uncertainty)
+
+
 def test_package_not_imported_is_not_reachable(project_factory):
     root = project_factory({"app.py": "def main():\n    pass\n"})
     result, _, _ = run_analysis(root, [make_advisory()], [make_dependency()])
@@ -125,6 +162,18 @@ def test_unaffected_version_is_excluded(project_factory):
     )
     assert result.findings == []
     assert result.summary["advisories_excluded"] == 1
+
+
+def test_fix_commit_candidates_are_never_reported_as_confirmed(project_factory):
+    advisory = make_advisory()
+    advisory.symbol_source = "fix_commit_candidate"
+    result, _, _ = run_analysis(
+        reachable_project(project_factory), [advisory], [make_dependency()]
+    )
+    finding = result.findings[0]
+    assert finding.verdict is Verdict.UNCERTAIN
+    assert finding.paths and finding.paths[0].is_confirmed
+    assert any(item.code == "fix_commit_symbol_candidates" for item in finding.rationale)
 
 
 def test_dynamic_import_produces_uncertainty(project_factory):

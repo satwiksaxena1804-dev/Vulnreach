@@ -331,6 +331,28 @@ def _analyze_one(
             uncertainty=uncertainty,
         )
 
+    if advisory.symbol_source == "fix_commit_candidate":
+        rationale.append(
+            Rationale(
+                "fix_commit_symbol_candidates",
+                "The candidate functions were inferred from a referenced fix commit. "
+                "A changed function is not necessarily vulnerable, so review this mapping "
+                "before treating the path as confirmed.",
+            )
+        )
+        uncertainty.extend(relevant_gaps[:5])
+        return Finding(
+            advisory=advisory,
+            dependency=dependency,
+            verdict=Verdict.UNCERTAIN,
+            confidence=0.65 if paths else 0.4,
+            rationale=rationale,
+            paths=paths[:3],
+            matched_symbols=matched,
+            vulnerable_symbols=advisory.symbols,
+            uncertainty=uncertainty,
+        )
+
     if confirmed:
         best = confirmed[0]
         rationale.append(
@@ -517,6 +539,10 @@ def _relevant_gaps(gaps: list[Gap], roots: set[str]) -> list[Gap]:
         if gap.kind in {GapKind.STAR_IMPORT, GapKind.DYNAMIC_IMPORT} and root in roots:
             relevant.append(gap)
         elif gap.kind in {GapKind.DYNAMIC_CODE, GapKind.DYNAMIC_DISPATCH}:
+            relevant.append(gap)
+        elif gap.kind in {GapKind.UNRESOLVED_CALL, GapKind.UNRESOLVED_IMPORT, GapKind.PARSE_ERROR}:
+            # These gaps can hide a path the resolver could not name. Treating
+            # absence of a graph path as proof would be unsafe.
             relevant.append(gap)
     return relevant
 

@@ -11,6 +11,7 @@ from vulnreach.symbols import (
     build_patterns,
     enrich_advisory,
     matched_symbols,
+    symbols_from_fix_patch,
 )
 
 
@@ -87,7 +88,35 @@ def test_malformed_database_raises(tmp_path):
     path.write_text("{not json", encoding="utf-8")
     with pytest.raises(SymbolDataError):
         SymbolDatabase.load((path,), include_bundled=False)
-
     path.write_text(json.dumps({"advisories": {"x": {"symbols": "nope"}}}), encoding="utf-8")
     with pytest.raises(SymbolDataError):
         SymbolDatabase.load((path,), include_bundled=False)
+
+
+def test_fix_patch_yields_review_candidates_for_package_functions():
+    patch = """diff --git a/src/demo_client/api.py b/src/demo_client/api.py
+index 1111111..2222222 100644
+--- a/src/demo_client/api.py
++++ b/src/demo_client/api.py
+@@ -10,3 +10,4 @@ def fetch(url):
+-    return transport.get(url)
++    return validate_url(url)
+"""
+    assert symbols_from_fix_patch(patch, ("demo_client",)) == ("demo_client.api.fetch",)
+
+
+def test_fix_patch_ignores_non_python_and_unmatched_paths():
+    patch = """diff --git a/setup.cfg b/setup.cfg
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1 +1 @@
+-old
++new
+diff --git a/other/api.py b/other/api.py
+--- a/other/api.py
++++ b/other/api.py
+@@ -10,3 +10,4 @@ def fetch(url):
+-    return old(url)
++    return new(url)
+"""
+    assert symbols_from_fix_patch(patch, ("demo_client",)) == ()

@@ -170,12 +170,19 @@ result.
 
 ## 5. Vulnerable symbols (`vulnreach/symbols.py`)
 
-Symbols are read from:
+Symbols and candidate hints are read from:
 
 1. `database_specific.vulnreach_symbols` (top-level or per affected entry),
 2. `affected[].ecosystem_specific.imports[].symbols` (the OSV symbol shape),
 3. a curated database (`--symbols-file` or the bundled, initially empty
    `data/known-symbols.json`).
+
+If those sources provide no symbols and an OSV reference has type `FIX` with a
+GitHub commit URL, VulnReach reads the commit's text patch and extracts Python
+function names from changed hunks. It caches candidates by commit URL and import
+roots. Because a changed function may be adjacent to, rather than responsible
+for, a vulnerability, these hints are reported as uncertain and must be reviewed
+before moving into the curated database. The patch is never executed.
 
 Patterns are normalised against the dependency's known import names. A symbol can
 be an exact function (`yaml.load`), a class prefix (`yaml.Loader`, which also

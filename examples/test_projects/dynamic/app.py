@@ -4,7 +4,7 @@ import demo_http_client
 
 
 def main() -> None:
-    fetch = getattr(demo_http_client, "fetch")
+    fetch = getattr(demo_http_client, "fetch")  # noqa: B009 - deliberate dynamic-dispatch fixture
     fetch("https://example.invalid")
 
 

@@ -34,6 +34,12 @@ deserialisation function may never be called. Conversely, a pinned dependency
 with a vulnerable helper can be genuinely exploitable from a request handler.
 Reachability turns a dependency inventory into an argument about *this program*.
 
+Go's `govulncheck` and OSV-Scanner already combine advisory data with call analysis
+for Go; other ecosystems have tools such as Jelly for JavaScript. VulnReach's
+focus is Python's import and call semantics, with explicit uncertainty when
+Python runtime behavior or advisory symbol data cannot be resolved. It is a
+prototype, not a claim of broader coverage than those established tools.
+
 VulnReach is deliberately conservative:
 
 - It does not guess. Unresolved calls, `getattr`, `exec`, dynamic imports and
@@ -193,10 +199,9 @@ advisory lookup is an error, never an empty report.
 ## GitHub integration
 
 `.github/workflows/vulnreach.yml` scans on every push and pull request, uploads all
-report formats as artifacts, updates a single PR comment
-(`scripts/post_pr_comment.py`), and fails the job when a reachable finding is
-present. `.github/workflows/ci.yml` runs ruff and the test suite on Python
-3.11–3.13.
+report formats as artifacts, and fails the job when a reachable finding is
+present. It does not post automated comments to project PRs. `.github/workflows/ci.yml`
+runs ruff and the test suite on Python 3.11–3.13.
 
 ## Architecture at a glance
 
@@ -248,6 +253,11 @@ configuration, the command prints a deterministic explanation.
 - **Symbol data is sparse in the ecosystem.** OSV records for PyPI rarely list
   vulnerable functions. VulnReach reports those as uncertain and accepts curated
   mappings (`--symbols-file`).
+- **Fix-commit hints are candidates, not ground truth.** When an OSV record links
+  a GitHub fix commit, VulnReach can extract changed Python function names from
+  its patch. Those candidate mappings are cached and stay **uncertain** until
+  reviewed; a function changed by a fix is not automatically the vulnerable
+  function. This heuristic does not trace data flow or inspect non-GitHub fixes.
 - **Reflection is not resolved.** `getattr`, `exec`, dynamic imports and star
   imports are reported as gaps. They lower confidence and can turn a would-be
   "not reachable" into "uncertain".
@@ -266,11 +276,15 @@ ruff check .
 pytest
 ```
 
-The suite currently contains 83 tests covering parsing, name resolution, call
+The suite covers parsing, name resolution, call
 graphs, dependency parsing, OSV offline ingestion, range evaluation, symbol
 matching, all three verdicts, OpenVEX output, JSON/Markdown reports, safety
 failure modes, CLI exit codes, and AI guardrails. Live OSV calls are exercised
 manually, not in CI, so the suite is deterministic and offline.
+
+The bundled test projects and advisory records are synthetic fixtures. They
+demonstrate behavior but do not replace hand-checked evaluation on public Python
+repositories or the organizers' fixture set.
 
 ## Roadmap
 

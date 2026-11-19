@@ -23,6 +23,12 @@ For each advisory, in order:
 3. **Nothing** — the finding becomes `uncertain` with
    `symbol_data_unavailable`.
 
+When the advisory has no symbols but includes a GitHub `FIX` commit reference,
+VulnReach may extract changed Python function names as **review candidates**.
+Candidates are not authoritative vulnerable-symbol data: findings based on them
+remain `uncertain`, even when a static path is found. Review the patch and add a
+validated mapping to a curated symbols file if you want a definitive verdict.
+
 Advisory-provided symbols are never overridden by curated data.
 
 ## Symbol syntax

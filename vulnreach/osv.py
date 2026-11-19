@@ -339,7 +339,15 @@ def advisory_from_osv(data: dict[str, Any], *, query_mode: str = "package") -> A
     symbols = _extract_symbols(data, affected_entries)
 
     url: str | None = None
-    for reference in data.get("references") or []:
+    references = data.get("references") or []
+    fix_urls = tuple(
+        reference["url"]
+        for reference in references
+        if isinstance(reference, dict)
+        and str(reference.get("type", "")).upper() == "FIX"
+        and isinstance(reference.get("url"), str)
+    )
+    for reference in references:
         if isinstance(reference, dict) and isinstance(reference.get("url"), str):
             url = reference["url"]
             break
@@ -356,6 +364,7 @@ def advisory_from_osv(data: dict[str, Any], *, query_mode: str = "package") -> A
         published=str(data.get("published")) if data.get("published") else None,
         modified=str(data.get("modified")) if data.get("modified") else None,
         url=url,
+        fix_urls=fix_urls,
         symbols=symbols,
         symbol_source="advisory" if symbols else None,
         affected=tuple(entry for entry in affected_entries if isinstance(entry, dict)),

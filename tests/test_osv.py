@@ -55,6 +55,20 @@ def test_advisory_parsing_without_symbols():
     assert advisory.aliases == ("CVE-2026-1",)
 
 
+def test_advisory_parses_fix_references():
+    data = {
+        "id": "GHSA-fix",
+        "affected": [{"package": {"ecosystem": "PyPI", "name": "demo-pkg"}}],
+        "references": [
+            {"type": "ADVISORY", "url": "https://example.test/advisory"},
+            {"type": "FIX", "url": "https://github.com/acme/demo-pkg/commit/abc123"},
+        ],
+    }
+    advisory = advisory_from_osv(data)
+    assert advisory is not None
+    assert advisory.fix_urls == ("https://github.com/acme/demo-pkg/commit/abc123",)
+
+
 def test_non_pypi_entries_are_ignored():
     data = {
         "id": "OSV-1",

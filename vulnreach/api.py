@@ -12,7 +12,7 @@ from .osv import AdvisoryClient
 from .reachability import AnalysisResult, analyze
 from .resolution import resolve_project
 from .scanner import scan_project
-from .symbols import SymbolDatabase, enrich_advisory
+from .symbols import SymbolDatabase, enrich_advisory, infer_fix_commit_symbols
 
 
 @dataclass
@@ -53,10 +53,11 @@ def analyze_project(config: ScanConfig) -> AnalysisResult:
         *config.extra_warnings,
     ]
 
+    cache_dir = config.cache_dir
+    if cache_dir is None and not config.no_cache:
+        cache_dir = project.root / ".vulnreach" / "cache"
+
     if dependency_set.dependencies:
-        cache_dir = config.cache_dir
-        if cache_dir is None and not config.no_cache:
-            cache_dir = project.root / ".vulnreach" / "cache"
         client = AdvisoryClient(
             cache_dir=cache_dir,
             offline_dirs=config.advisory_dirs,
@@ -73,7 +74,24 @@ def analyze_project(config: ScanConfig) -> AnalysisResult:
         advisory_source = "offline" if config.offline else "osv"
 
     symbol_database = SymbolDatabase.load(config.symbol_files)
-    advisories = [enrich_advisory(advisory, symbol_database) for advisory in advisories]
+    dependency_by_name = {dependency.name: dependency for dependency in dependency_set.dependencies}
+    enriched_advisories = []
+    for advisory in advisories:
+        advisory = enrich_advisory(advisory, symbol_database)
+        dependency = dependency_by_name.get(advisory.package)
+        if not advisory.symbols and dependency is not None and advisory.fix_urls:
+            candidates = infer_fix_commit_symbols(
+                advisory,
+                dependency.import_names,
+                cache_dir=cache_dir,
+                allow_network=not config.offline,
+                timeout=min(config.timeout, 4.0),
+            )
+            if candidates:
+                advisory.symbols = candidates
+                advisory.symbol_source = "fix_commit_candidate"
+        enriched_advisories.append(advisory)
+    advisories = enriched_advisories
 
     return analyze(
         project,

@@ -21,6 +21,11 @@ offline and tested deterministically.
 For real data, run without `--offline` against a project with real dependencies;
 VulnReach queries OSV.dev.
 
+These fixtures are synthetic and are not a benchmark on public repositories or
+the organizers' hidden fixture set. Treat them as a demonstration of expected
+behavior, then hand-check results on public Python projects before making
+accuracy claims.
+
 ## Run it
 
 ```bash
