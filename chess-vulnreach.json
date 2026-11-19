@@ -1,0 +1,1531 @@
+{
+  "schema_version": "1.0",
+  "tool": {
+    "name": "vulnreach",
+    "version": "0.1.0"
+  },
+  "generated_at": "2026-11-19T05:19:12.755311Z",
+  "project": {
+    "name": "Chess",
+    "version": null,
+    "root": "C:\\Users\\satwi_utwcmhd\\OneDrive\\Documents\\projects\\Chess",
+    "modules_scanned": 2,
+    "modules_failed": 0,
+    "entry_points": [
+      {
+        "node_id": "mod:chess",
+        "label": "chess (module)",
+        "kind": "top_level",
+        "location": {
+          "path": "chess.py",
+          "line": 1,
+          "column": 0
+        }
+      },
+      {
+        "node_id": "mod:replay",
+        "label": "replay (module)",
+        "kind": "top_level",
+        "location": {
+          "path": "replay.py",
+          "line": 1,
+          "column": 0
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "advisory_source": "osv",
+    "graph": {
+      "calls": 457,
+      "resolved": 332,
+      "project_calls": 42,
+      "external_calls": 163,
+      "stdlib_calls": 46,
+      "builtin_calls": 81,
+      "unresolved_calls": 125,
+      "references": 49,
+      "resolution_coverage": 0.726
+    },
+    "metrics": {
+      "modules_scanned": 2,
+      "modules_failed": 0,
+      "calls": 457,
+      "resolved_calls": 332,
+      "resolution_coverage": 0.726,
+      "reachable_resolution_coverage": 0.725,
+      "dynamic_gaps": 129,
+      "entry_points": 2,
+      "dependencies": 2,
+      "advisories_considered": 0,
+      "advisories_excluded": 0
+    },
+    "gaps": [
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 40,
+          "column": 18
+        },
+        "detail": "mydb.cursor"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 45,
+          "column": 9
+        },
+        "detail": "cursor.execute"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 46,
+          "column": 15
+        },
+        "detail": "cursor.fetchone"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 50,
+          "column": 13
+        },
+        "detail": "cursor.execute"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 56,
+          "column": 13
+        },
+        "detail": "cursor.execute"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 62,
+          "column": 9
+        },
+        "detail": "mydb.commit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 70,
+          "column": 13
+        },
+        "detail": "cursor.close"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_game",
+        "location": {
+          "path": "chess.py",
+          "line": 71,
+          "column": 13
+        },
+        "detail": "mydb.close"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 100,
+          "column": 22
+        },
+        "detail": "screen.copy"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 121,
+          "column": 28
+        },
+        "detail": "text.strip"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 139,
+          "column": 13
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 141,
+          "column": 13
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 143,
+          "column": 34
+        },
+        "detail": "screen.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 145,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 148,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 152,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:save_name",
+        "location": {
+          "path": "chess.py",
+          "line": 156,
+          "column": 35
+        },
+        "detail": "txt_surf.get_width"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_board",
+        "location": {
+          "path": "chess.py",
+          "line": 320,
+          "column": 5
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 336,
+          "column": 19
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 340,
+          "column": 24
+        },
+        "detail": "img.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 343,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 356,
+          "column": 19
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 360,
+          "column": 24
+        },
+        "detail": "img.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_pieces",
+        "location": {
+          "path": "chess.py",
+          "line": 363,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_options",
+        "location": {
+          "path": "chess.py",
+          "line": 394,
+          "column": 9
+        },
+        "detail": "all_moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_king",
+        "location": {
+          "path": "chess.py",
+          "line": 418,
+          "column": 13
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_queen",
+        "location": {
+          "path": "chess.py",
+          "line": 461,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_bishop",
+        "location": {
+          "path": "chess.py",
+          "line": 498,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_knight",
+        "location": {
+          "path": "chess.py",
+          "line": 521,
+          "column": 13
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_rook",
+        "location": {
+          "path": "chess.py",
+          "line": 552,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 570,
+          "column": 13
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 572,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 576,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 579,
+          "column": 13
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 581,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:check_pawn",
+        "location": {
+          "path": "chess.py",
+          "line": 585,
+          "column": 17
+        },
+        "detail": "moves_list.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_captured",
+        "location": {
+          "path": "chess.py",
+          "line": 614,
+          "column": 15
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_captured",
+        "location": {
+          "path": "chess.py",
+          "line": 615,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_captured",
+        "location": {
+          "path": "chess.py",
+          "line": 618,
+          "column": 15
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:draw_captured",
+        "location": {
+          "path": "chess.py",
+          "line": 619,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "dynamic_code",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 671,
+          "column": 47
+        },
+        "detail": "globals() in reachable code"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 681,
+          "column": 9
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 683,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 687,
+          "column": 22
+        },
+        "detail": "title_surf.get_rect"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 688,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 692,
+          "column": 20
+        },
+        "detail": "sub_surf.get_rect"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 693,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 697,
+          "column": 22
+        },
+        "detail": "press_surf.get_rect"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 698,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 701,
+          "column": 22
+        },
+        "detail": "press_surf.get_rect"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:_win_screen",
+        "location": {
+          "path": "chess.py",
+          "line": 702,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 712,
+          "column": 5
+        },
+        "detail": "white_pieces.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 713,
+          "column": 5
+        },
+        "detail": "black_pieces.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 714,
+          "column": 5
+        },
+        "detail": "white_locations.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 715,
+          "column": 5
+        },
+        "detail": "black_locations.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 716,
+          "column": 5
+        },
+        "detail": "captured_pieces_white.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_white_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 717,
+          "column": 5
+        },
+        "detail": "captured_pieces_black.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 727,
+          "column": 5
+        },
+        "detail": "white_pieces.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 728,
+          "column": 5
+        },
+        "detail": "black_pieces.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 729,
+          "column": 5
+        },
+        "detail": "white_locations.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 730,
+          "column": 5
+        },
+        "detail": "black_locations.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 731,
+          "column": 5
+        },
+        "detail": "captured_pieces_white.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "fn:chess:display_black_wins",
+        "location": {
+          "path": "chess.py",
+          "line": 732,
+          "column": 5
+        },
+        "detail": "captured_pieces_black.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 752,
+          "column": 5
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 788,
+          "column": 33
+        },
+        "detail": "white_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 802,
+          "column": 21
+        },
+        "detail": "moves_replay.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 806,
+          "column": 31
+        },
+        "detail": "black_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 807,
+          "column": 25
+        },
+        "detail": "captured_pieces_white.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 808,
+          "column": 25
+        },
+        "detail": "black_pieces.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 809,
+          "column": 25
+        },
+        "detail": "black_locations.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 827,
+          "column": 33
+        },
+        "detail": "black_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 841,
+          "column": 21
+        },
+        "detail": "moves_replay.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 845,
+          "column": 31
+        },
+        "detail": "white_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 846,
+          "column": 25
+        },
+        "detail": "captured_pieces_black.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 847,
+          "column": 25
+        },
+        "detail": "white_pieces.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "chess",
+        "caller_id": "mod:chess",
+        "location": {
+          "path": "chess.py",
+          "line": 848,
+          "column": 25
+        },
+        "detail": "white_locations.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 34,
+          "column": 22
+        },
+        "detail": "screen.copy"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 61,
+          "column": 13
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 63,
+          "column": 13
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 65,
+          "column": 34
+        },
+        "detail": "screen.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 67,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 70,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:game_name",
+        "location": {
+          "path": "replay.py",
+          "line": 74,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 86,
+          "column": 12
+        },
+        "detail": "game.strip"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 100,
+          "column": 24
+        },
+        "detail": "mydb.cursor"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 102,
+          "column": 13
+        },
+        "detail": "mycursor.execute"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 103,
+          "column": 19
+        },
+        "detail": "mycursor.fetchone"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 118,
+          "column": 17
+        },
+        "detail": "mycursor.close"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 119,
+          "column": 17
+        },
+        "detail": "mydb.close"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_board",
+        "location": {
+          "path": "replay.py",
+          "line": 302,
+          "column": 5
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 319,
+          "column": 19
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 323,
+          "column": 24
+        },
+        "detail": "img.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 326,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 334,
+          "column": 19
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 338,
+          "column": 24
+        },
+        "detail": "img.get_size"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_pieces",
+        "location": {
+          "path": "replay.py",
+          "line": 341,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_captured",
+        "location": {
+          "path": "replay.py",
+          "line": 350,
+          "column": 15
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_captured",
+        "location": {
+          "path": "replay.py",
+          "line": 351,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_captured",
+        "location": {
+          "path": "replay.py",
+          "line": 354,
+          "column": 15
+        },
+        "detail": "piece_list.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:draw_captured",
+        "location": {
+          "path": "replay.py",
+          "line": 355,
+          "column": 9
+        },
+        "detail": "screen.blit"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:reset_board_to_start",
+        "location": {
+          "path": "replay.py",
+          "line": 389,
+          "column": 5
+        },
+        "detail": "captured_pieces_white.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:reset_board_to_start",
+        "location": {
+          "path": "replay.py",
+          "line": 390,
+          "column": 5
+        },
+        "detail": "captured_pieces_black.clear"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 399,
+          "column": 23
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 399,
+          "column": 43
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 399,
+          "column": 66
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 400,
+          "column": 21
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 400,
+          "column": 39
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 400,
+          "column": 60
+        },
+        "detail": "move.get"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 415,
+          "column": 15
+        },
+        "detail": "white_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 418,
+          "column": 18
+        },
+        "detail": "black_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 419,
+          "column": 13
+        },
+        "detail": "captured_pieces_white.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 420,
+          "column": 13
+        },
+        "detail": "black_pieces.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 420,
+          "column": 35
+        },
+        "detail": "black_locations.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 424,
+          "column": 15
+        },
+        "detail": "black_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 426,
+          "column": 18
+        },
+        "detail": "white_locations.index"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 427,
+          "column": 13
+        },
+        "detail": "captured_pieces_black.append"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 428,
+          "column": 13
+        },
+        "detail": "white_pieces.pop"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:apply_move_force",
+        "location": {
+          "path": "replay.py",
+          "line": 428,
+          "column": 35
+        },
+        "detail": "white_locations.pop"
+      },
+      {
+        "kind": "dynamic_code",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 460,
+          "column": 33
+        },
+        "detail": "globals() in reachable code"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 462,
+          "column": 27
+        },
+        "detail": "manual_move"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 489,
+          "column": 25
+        },
+        "detail": "check_options"
+      },
+      {
+        "kind": "dynamic_code",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 491,
+          "column": 101
+        },
+        "detail": "globals() in reachable code"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 491,
+          "column": 25
+        },
+        "detail": "check_options"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 493,
+          "column": 25
+        },
+        "detail": "check_options"
+      },
+      {
+        "kind": "dynamic_code",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 495,
+          "column": 101
+        },
+        "detail": "globals() in reachable code"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "fn:replay:set_board_to_replay_index",
+        "location": {
+          "path": "replay.py",
+          "line": 495,
+          "column": 25
+        },
+        "detail": "check_options"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 526,
+          "column": 5
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 547,
+          "column": 21
+        },
+        "detail": "screen.fill"
+      },
+      {
+        "kind": "unresolved_call",
+        "module": "replay",
+        "caller_id": "mod:replay",
+        "location": {
+          "path": "replay.py",
+          "line": 557,
+          "column": 21
+        },
+        "detail": "screen.fill"
+      }
+    ],
+    "warnings": [],
+    "limitations": [
+      "Reachability is evaluated at the application-to-dependency call boundary. Control flow inside third-party packages is not modelled, so a package function that internally calls a vulnerable helper may be reported as not reachable with reduced confidence.",
+      "Dynamic imports, getattr-based dispatch, monkeypatching and exec/eval are reported as uncertainty. They are never silently followed or assumed safe.",
+      "Entry points are inferred statically from __main__ guards, console scripts, web/task handler decorators and modules that nothing else imports.",
+      "Dependency versions come from the installed environment when it satisfies the declared specifier, otherwise from exact pins. Unpinned, uninstalled packages produce an uncertain affectedness result."
+    ]
+  },
+  "dependencies": [
+    {
+      "name": "mysql-connector-python",
+      "version": "26.10.0",
+      "version_source": "installed",
+      "specifier": "",
+      "direct": true,
+      "depth": 0,
+      "via": [],
+      "import_names": [
+        "_mysql_connector",
+        "mysql",
+        "mysql_connector_python",
+        "mysqlconnectorpython"
+      ],
+      "source": "requirements.txt"
+    },
+    {
+      "name": "pygame",
+      "version": "2.6.1",
+      "version_source": "installed",
+      "specifier": "",
+      "direct": true,
+      "depth": 0,
+      "via": [],
+      "import_names": [
+        "pygame"
+      ],
+      "source": "requirements.txt"
+    }
+  ],
+  "findings": [],
+  "summary": {
+    "reachable": 0,
+    "not_reachable": 0,
+    "uncertain": 0,
+    "total": 0,
+    "advisories_excluded": 0
+  }
+}

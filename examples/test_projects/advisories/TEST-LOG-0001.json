@@ -1,0 +1,16 @@
+{
+  "id": "VULNREACH-TEST-LOG-0001",
+  "summary": "Synthetic test advisory with no function-level symbol data",
+  "database_specific": {"severity": "MEDIUM"},
+  "affected": [
+    {
+      "package": {"ecosystem": "PyPI", "name": "demo-logging"},
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [{"introduced": "0"}, {"fixed": "1.0.0"}]
+        }
+      ]
+    }
+  ]
+}

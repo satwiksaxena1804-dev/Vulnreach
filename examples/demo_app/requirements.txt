@@ -1,0 +1,4 @@
+demo-http-client==1.4.2
+demo-yaml==2.1.0
+demo-logging==0.9.1
+demo-crypto==0.3.0

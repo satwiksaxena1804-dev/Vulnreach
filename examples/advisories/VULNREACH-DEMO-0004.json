@@ -1,0 +1,23 @@
+{
+  "id": "VULNREACH-DEMO-0004",
+  "aliases": ["CVE-2099-0004"],
+  "summary": "demo-http-client stream() leaks connection headers",
+  "details": "Synthetic advisory used by the VulnReach offline demo. Only demo_http_client.stream() is affected; the demo application calls fetch() instead.",
+  "modified": "2026-03-01T00:00:00Z",
+  "published": "2026-02-25T00:00:00Z",
+  "database_specific": {
+    "severity": "LOW",
+    "vulnreach_symbols": ["demo_http_client.stream"]
+  },
+  "affected": [
+    {
+      "package": {"ecosystem": "PyPI", "name": "demo-http-client"},
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [{"introduced": "1.0.0"}, {"fixed": "1.4.3"}]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "VULNREACH-DEMO-0005",
+  "aliases": [],
+  "summary": "demo-crypto decrypt() accepts a weak cipher mode",
+  "details": "Synthetic advisory used by the VulnReach offline demo. The dependency is declared but never imported by the application.",
+  "modified": "2026-03-05T00:00:00Z",
+  "published": "2026-03-02T00:00:00Z",
+  "database_specific": {
+    "severity": "HIGH",
+    "vulnreach_symbols": ["demo_crypto.decrypt"]
+  },
+  "affected": [
+    {
+      "package": {"ecosystem": "PyPI", "name": "demo-crypto"},
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [{"introduced": "0.1.0"}, {"fixed": "0.4.0"}]
+        }
+      ]
+    }
+  ]
+}

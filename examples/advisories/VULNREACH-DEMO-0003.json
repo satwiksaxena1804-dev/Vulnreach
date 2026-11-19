@@ -1,0 +1,22 @@
+{
+  "id": "VULNREACH-DEMO-0003",
+  "aliases": [],
+  "summary": "demo-logging log_event() mishandles format strings",
+  "details": "Synthetic advisory used by the VulnReach offline demo. It deliberately contains no symbol-level information, so reachability cannot be decided from the advisory alone.",
+  "modified": "2026-02-10T00:00:00Z",
+  "published": "2026-02-05T00:00:00Z",
+  "database_specific": {
+    "severity": "MEDIUM"
+  },
+  "affected": [
+    {
+      "package": {"ecosystem": "PyPI", "name": "demo-logging"},
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [{"introduced": "0.9.0"}, {"fixed": "1.0.0"}]
+        }
+      ]
+    }
+  ]
+}

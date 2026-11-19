@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Curated function-level mappings for advisories that do not publish vulnerable symbols. Entries are keyed by OSV/GHSA/CVE identifier and validated against the advisory's PyPI package. See docs/ADVISORY-SYMBOLS.md.",
+  "advisories": {}
+}

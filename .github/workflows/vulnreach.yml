@@ -1,0 +1,61 @@
+name: VulnReach
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  reachability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install VulnReach
+        run: python -m pip install .
+
+      - name: Scan
+        run: |
+          vulnreach scan . \
+            --format console,json,markdown,vex \
+            --output-dir vulnreach-out \
+            --fail-on never
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vulnreach-reports
+          path: vulnreach-out/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Comment on pull request
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/post_pr_comment.py vulnreach-out/vulnreach-report.md
+
+      - name: Enforce reachability gate
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+
+          with open("vulnreach-out/vulnreach-report.json", encoding="utf-8") as handle:
+              report = json.load(handle)
+          reachable = report.get("summary", {}).get("reachable", 0)
+          if reachable:
+              print(f"VulnReach: {reachable} reachable finding(s)")
+              sys.exit(1)
+          print("VulnReach: no reachable findings")
+          PY
