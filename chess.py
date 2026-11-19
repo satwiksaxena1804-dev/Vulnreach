@@ -9,21 +9,6 @@ import subprocess
 now = datetime.now()
 
 
-pygame.init()
-WIDTH=870
-HEIGHT=800
-BOARD_PIXEL = 800 * 5/6          
-SQUARE = BOARD_PIXEL / 8.0       
-BOARD_ORIGIN = (0, 0)            
-screen=pygame.display.set_mode([WIDTH, HEIGHT])
-pygame.display.set_caption('Chess!')
-font= pygame.font.Font('freesansbold.ttf',50)
-big_font = pygame.font.Font('freesansbold.ttf', 40)
-
-timer=pygame.time.Clock()
-fps=60
-
-
 def save_game(moves_list, player_name):
     """
     Save or overwrite a game in MySQL.
