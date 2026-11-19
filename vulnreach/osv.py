@@ -27,7 +27,7 @@ from .versions import advisory_affects_version, fixed_versions_for
 
 OSV_QUERY_URL = "https://api.osv.dev/v1/query"
 CACHE_TTL_SECONDS = 24 * 60 * 60
-USER_AGENT = "vulnreach/0.1.0 (+https://github.com/example/vulnreach)"
+USER_AGENT = "vulnreach/0.1.0 (+https://github.com/satwiksaxena1804-dev/Vulnreach)"
 
 
 @dataclass

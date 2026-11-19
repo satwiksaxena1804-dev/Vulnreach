@@ -48,7 +48,7 @@ VulnReach is deliberately conservative:
 Requires Python 3.11+ and one runtime dependency (`packaging`).
 
 ```bash
-git clone https://github.com/example/vulnreach.git
+git clone https://github.com/satwiksaxena1804-dev/Vulnreach.git
 cd vulnreach
 python -m venv .venv
 # Windows: .venv\Scripts\activate

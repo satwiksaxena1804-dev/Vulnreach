@@ -37,8 +37,8 @@ dev = [
 vulnreach = "vulnreach.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/example/vulnreach"
-Documentation = "https://github.com/example/vulnreach#readme"
+Homepage = "https://github.com/satwiksaxena1804-dev/Vulnreach"
+Documentation = "https://github.com/satwiksaxena1804-dev/Vulnreach#readme"
 
 [tool.setuptools.packages.find]
 include = ["vulnreach*"]
